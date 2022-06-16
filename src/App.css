@@ -1,0 +1,30 @@
+.App{
+  text-align: center;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.video{
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position:absolute;
+  left: 0;  
+  filter: blur(2px);
+}
+.contain-app{
+  width: 40rem;
+  position: relative;
+  border-radius: 30px;
+  background: #1e53684b;
+  box-shadow: 15px 15px 30px rgb(25, 25, 25),
+             
+}

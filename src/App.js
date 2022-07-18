@@ -17,8 +17,10 @@ export default function App() {
   //defino la función onSearch
   async function onSearch(ciudad) {
 
+   
     const recurso= await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`).data
-    console.log(recurso)
+    const city= await Promise.all([recurso])
+    console.log(city)
         if(recurso.main !== undefined){
           const ciudad = {
             min: Math.round(recurso.main.temp_min),
@@ -33,7 +35,7 @@ export default function App() {
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon
           };
-          const city= await Promise.all([ciudad])
+         
           console.log(city, ciudad)
           setCities(oldCities => [...oldCities, city]);
         } else {

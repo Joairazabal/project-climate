@@ -37,7 +37,7 @@ export default function App() {
           };
          
           console.log(city, ciudad)
-          setCities(oldCities => [...oldCities, city]);
+          setCities(oldCities => [...oldCities, ciudad]);
         } else {
           alert("Ciudad no encontrada");
         }

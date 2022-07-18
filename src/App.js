@@ -15,7 +15,7 @@ export default function App() {
   //defino mi variable apiKey
   const apiKey = "4ae2636d8dfbdc3044bede63951a019b"
   //defino la función onSearch
-  async function  onSearch(ciudad) {
+  async function onSearch(ciudad) {
 
     const recurso= await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`).data
     console.log(recurso)

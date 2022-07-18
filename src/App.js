@@ -32,7 +32,8 @@ export default function App() {
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon
           };
-          setCities(oldCities => [...oldCities, ciudad]);
+          const city= Promise.all([ciudad])
+          setCities(oldCities => [...oldCities, city]);
         } else {
           alert("Ciudad no encontrada");
         }

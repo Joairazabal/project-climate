@@ -18,9 +18,9 @@ export default function App() {
   async function onSearch(ciudad) {
 
    console.log(ciudad)
-    const recurso= await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
-    const city= await Promise.resolve(recurso.data)
-    console.log(city)
+    const recurso= await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`).data
+    // const city= await Promise.resolve(recurso.data)
+    // console.log(city)
         if(recurso.main !== undefined){
           const ciudad = {
             min: Math.round(recurso.main.temp_min),

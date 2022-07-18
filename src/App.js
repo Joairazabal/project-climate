@@ -6,6 +6,7 @@ import Cards from './components/Cards.jsx';
 //importo el hook { useState } que usaré dentro de la función App
 import { useState } from 'react'; 
 import video from './components/build/Rain.mp4'
+import axios from 'axios'
 
 export default function App() {
   //defino mi estado local cities y su función seteadore setCities
@@ -14,10 +15,10 @@ export default function App() {
   //defino mi variable apiKey
   const apiKey = "4ae2636d8dfbdc3044bede63951a019b"
   //defino la función onSearch
-  function onSearch(ciudad) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
-      .then(r => r.json())
-      .then((recurso) => {
+  async function  onSearch(ciudad) {
+
+    const recurso= await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`).data
+   
         if(recurso.main !== undefined){
           const ciudad = {
             min: Math.round(recurso.main.temp_min),
@@ -32,13 +33,13 @@ export default function App() {
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon
           };
-          const city= Promise.all([ciudad])
+          const city= await Promise.all([ciudad])
           console.log(city, ciudad)
           setCities(oldCities => [...oldCities, city]);
         } else {
           alert("Ciudad no encontrada");
         }
-      }).catch(e=>console.log(e))
+
 
 
     }

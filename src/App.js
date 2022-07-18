@@ -18,7 +18,7 @@ export default function App() {
   async function  onSearch(ciudad) {
 
     const recurso= await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`).data
-   
+    console.log(recurso)
         if(recurso.main !== undefined){
           const ciudad = {
             min: Math.round(recurso.main.temp_min),
@@ -40,7 +40,7 @@ export default function App() {
           alert("Ciudad no encontrada");
         }
 
-
+        
 
     }
     //defino la función onClose

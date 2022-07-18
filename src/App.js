@@ -17,7 +17,7 @@ export default function App() {
   //defino la función onSearch
   async function onSearch(ciudad) {
 
-   
+   console.log(ciudad)
     const recurso= await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
     const city= await Promise.resolve(recurso.data)
     console.log(city)

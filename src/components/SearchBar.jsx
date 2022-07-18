@@ -27,7 +27,7 @@ export default function SearchBar({onSearch}) {
         placeholder="city..."
         onChange={(e)=>handleInputChange(e)}
       />
-      <button className="buscar" type="submit">Search..</button>
+      <button className="buscar" type="submit">Search</button>
     </form>
     </div>
   );

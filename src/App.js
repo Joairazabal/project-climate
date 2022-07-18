@@ -33,11 +33,13 @@ export default function App() {
             longitud: recurso.coord.lon
           };
           const city= Promise.all([ciudad])
+          console.log(city, ciudad)
           setCities(oldCities => [...oldCities, city]);
         } else {
           alert("Ciudad no encontrada");
         }
-      });
+      }).catch(e=>console.log(e))
+
 
     }
     //defino la función onClose

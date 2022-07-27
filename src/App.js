@@ -17,15 +17,15 @@ export default function App() {
   //defino la función onSearch
   async function onSearch(ciudad) {
 
-   console.log(ciudad)
+   
     const recurso= await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
 
-    console.log(recurso)
+    
         if(recurso !== undefined){
           console.log('acaaa')
           const ciudad = {
             min: Math.round(recurso.data.main.temp_min),
-            max: Math.round(recurso.data.temp_max),
+            max: Math.round(recurso.data.main.temp_max),
             img: recurso.data.weather[0].icon,
             id: recurso.data.id,
             wind: recurso.data.wind.speed,
@@ -37,7 +37,7 @@ export default function App() {
             longitud: recurso.data.coord.lon
           };
          
-          console.log( ciudad)
+         
           setCities(oldCities => [...oldCities, ciudad]);
         } else {
           alert("Ciudad no encontrada");
